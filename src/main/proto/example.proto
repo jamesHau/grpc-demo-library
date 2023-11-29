@@ -1,0 +1,21 @@
+syntax = "proto3";
+import "google/protobuf/empty.proto";
+
+package com.example;
+
+option java_package = "com.example.grpcdemo";
+option java_outer_classname = "ExampleProtos";
+
+service ExampleService {
+  rpc ExampleMethod (ExampleRequest) returns (ExampleResponse);
+  rpc ExampleStatusException (google.protobuf.Empty) returns (google.protobuf.Empty);
+  rpc ExampleStatusRuntimeException (google.protobuf.Empty) returns (google.protobuf.Empty);
+}
+
+message ExampleRequest {
+  string message = 1;
+}
+
+message ExampleResponse {
+  string response = 1;
+}
